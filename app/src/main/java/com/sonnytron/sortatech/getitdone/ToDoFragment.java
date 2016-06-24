@@ -124,6 +124,7 @@ public class ToDoFragment extends Fragment {
         PackageManager packageManager = getActivity().getPackageManager();
 
         mStatusButton = (Button)v.findViewById(R.id.status_button);
+        mStatusButton.setText("Change Priority");
         mStatusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,19 +198,19 @@ public class ToDoFragment extends Fragment {
         switch (mTodo.getPriority()) {
             case 0:
                 priorityString = "Low";
-                mStatusButton.setTextColor(0x00CC00);
+                mPriorityTextView.setTextColor(0xFF00CC00);
                 break;
             case 1:
                 priorityString = "Normal";
-                mStatusButton.setTextColor(0xFFFF66);
+                mPriorityTextView.setTextColor(0xFFFFFF66);
                 break;
             case 2:
                 priorityString = "High";
-                mStatusButton.setTextColor(0xFF5050);
+                mPriorityTextView.setTextColor(0xFFFF5050);
                 break;
             default:
         }
-        mStatusButton.setText(priorityString);
+        mPriorityTextView.setText(priorityString);
     }
 
     private void showToastForStatus() {

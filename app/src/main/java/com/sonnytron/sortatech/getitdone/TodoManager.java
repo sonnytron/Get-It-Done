@@ -12,7 +12,11 @@ import com.sonnytron.sortatech.getitdone.database.TodoDBSchema;
 import com.sonnytron.sortatech.getitdone.database.TodoDBSchema.TodoTable;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,6 +27,7 @@ public class TodoManager {
     private static TodoManager sTodoManager;
     private Context mContext;
     private SQLiteDatabase mDatabase;
+    private static Comparator<Todo> descPriority;
 
     public static TodoManager get(Context context) {
         if (sTodoManager == null) {
@@ -54,6 +59,7 @@ public class TodoManager {
         } finally {
             cursor.close();
         }
+        Collections.sort(todos, descPriority);
         return todos;
     }
 
@@ -109,4 +115,12 @@ public class TodoManager {
         return new TodoCursorWrapper(cursor);
     }
 
+    static {
+        descPriority = new Comparator<Todo>() {
+            @Override
+            public int compare(Todo lhs, Todo rhs) {
+                return Integer.valueOf(rhs.getPriority()).compareTo(Integer.valueOf(lhs.getPriority()));
+            }
+        };
+    }
 }
