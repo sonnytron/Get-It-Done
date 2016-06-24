@@ -159,6 +159,7 @@ public class TodoListFragment extends Fragment {
             mStatusTextView.setText(mTodo.getStatus());
             mPhotoFile = TodoManager.get(getActivity()).getPhotoFile(mTodo);
             updatePhotoView();
+            updatePriorityStatus();
         }
 
         public TodoHolder(View itemView) {
@@ -175,6 +176,21 @@ public class TodoListFragment extends Fragment {
             } else {
                 Bitmap bitmap = PhotoUtilities.getScaledBitmap(mPhotoFile.getPath(), getActivity());
                 mPhotoView.setImageBitmap(bitmap);
+            }
+        }
+
+        private void updatePriorityStatus() {
+            switch (mTodo.getPriority()) {
+                case 0:
+                    mStatusTextView.setTextColor(0xFF00CC00);
+                    break;
+                case 1:
+                    mStatusTextView.setTextColor(0xFFFFFF66);
+                    break;
+                case 2:
+                    mStatusTextView.setTextColor(0xFFFF5050);
+                    break;
+                default:
             }
         }
 
