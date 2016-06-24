@@ -62,4 +62,9 @@ public class TodoPagerActivity extends AppCompatActivity implements ToDoFragment
     public void onTodoUpdated(Todo todo) {
 
     }
+
+    @Override
+    public void onTodoDeleted(Todo todo) {
+
+    }
 }

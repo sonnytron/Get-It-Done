@@ -34,4 +34,11 @@ public class ToDoMainActivity extends SingleFragmentActivity implements TodoList
                 .findFragmentById(R.id.fragment_container);
         listFragment.updateUI();
     }
+
+    @Override
+    public void onTodoDeleted(Todo todo) {
+        TodoListFragment listFragment = (TodoListFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_container);
+        listFragment.updateUI();
+    }
 }
