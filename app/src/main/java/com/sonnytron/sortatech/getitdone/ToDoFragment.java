@@ -1,7 +1,9 @@
 package com.sonnytron.sortatech.getitdone;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -10,6 +12,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -44,9 +47,12 @@ public class ToDoFragment extends Fragment {
     private ImageButton mPhotoButton;
     private ImageView mPhotoView;
     private Callbacks mCallbacks;
+    private ImageButton mDeleteButton;
+
 
     public interface Callbacks {
         void onTodoUpdated(Todo todo);
+        void onTodoDeleted(Todo todo);
     }
 
     public static ToDoFragment newInstance(UUID todoId) {
@@ -155,6 +161,14 @@ public class ToDoFragment extends Fragment {
         mPriorityTextView = (TextView)v.findViewById(R.id.todo_fragment_priority_text);
         updatePriorityView();
 
+        mDeleteButton = (ImageButton) v.findViewById(R.id.todo_item_delete);
+        mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertForDelete();
+            }
+        });
+
         return v;
     }
 
@@ -217,5 +231,27 @@ public class ToDoFragment extends Fragment {
         Context context = getContext();
         CharSequence text = mTodo.getStatus();
         Toast.makeText(getContext(), mTodo.getStatus(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void showAlertForDelete() {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setPositiveButton("For Sure", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mCallbacks.onTodoDeleted(mTodo);
+                TodoManager.get(getActivity()).deleteTodo(mTodo);
+                getActivity().onBackPressed();
+            }
+        });
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.setCancelable(true);
+        alert.setTitle("Are you sure you want to delete this Todo? There's no bringing it back!");
+        alert.show();
     }
 }

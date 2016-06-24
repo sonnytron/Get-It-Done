@@ -94,6 +94,12 @@ public class TodoManager {
         mDatabase.update(TodoTable.NAME, values, TodoTable.Cols.UUID + " = ?", new String[] { uuidString });
     }
 
+    public void deleteTodo(Todo todo) {
+        String uuidString = todo.getId().toString();
+        ContentValues values = getContentValues(todo);
+        mDatabase.delete(TodoTable.NAME, TodoTable.Cols.UUID + " = ?", new String[] { uuidString} );
+    }
+
     private static ContentValues getContentValues(Todo todo) {
         ContentValues values = new ContentValues();
         values.put(TodoTable.Cols.UUID, todo.getId().toString());

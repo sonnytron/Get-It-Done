@@ -43,6 +43,7 @@
             android:layout_marginRight="16dp"
             android:hint="@string/to_do_hint"/>
         <ImageButton
+            android:id="@+id/todo_item_delete"
             android:src="@drawable/ic_menu_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

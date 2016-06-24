@@ -24,4 +24,10 @@ public class TodoListActivity extends SingleFragmentActivity implements TodoList
         listFragment.updateUI();
     }
 
+    @Override
+    public void onTodoDeleted(Todo todo) {
+        TodoListFragment listFragment = (TodoListFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        listFragment.updateUI();
+    }
+
 }
