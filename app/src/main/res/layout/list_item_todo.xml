@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/list_item_todo_photo_view"
+        android:background="@android:color/darker_gray"
+        android:scaleType="centerInside"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        />
+    <TextView
+        android:id="@+id/list_item_todo_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/list_item_todo_photo_view"
+        android:textStyle="bold"
+        android:padding="4dp"
+        tools:text="Todo Title"/>
+    <TextView
+        android:id="@+id/list_item_todo_status_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/list_item_todo_photo_view"
+        android:layout_below="@+id/list_item_todo_title_text_view"
+        android:padding="4dp"
+        tools:text="Todo Status"/>
+
+</RelativeLayout>
