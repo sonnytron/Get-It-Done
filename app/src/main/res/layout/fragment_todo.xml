@@ -20,16 +20,21 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
+        android:padding="8dp"
+        android:background="@drawable/status_border"
         tools:text="Priority"/>
     <Button
         android:id="@+id/due_date"
+        style="@style/ButtonAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"/>
     <Button
         android:id="@+id/status_button"
+        style="@style/ButtonAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"

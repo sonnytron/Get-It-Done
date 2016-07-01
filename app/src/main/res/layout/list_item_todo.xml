@@ -5,10 +5,11 @@
                 android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/list_item_todo_photo_view"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/image_view_border"
         android:scaleType="centerInside"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_margin="8dp"
         />
     <TextView
         android:id="@+id/list_item_todo_title_text_view"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/list_item_todo_photo_view"
         android:layout_below="@+id/list_item_todo_title_text_view"
+        android:background="@drawable/status_border"
         android:padding="4dp"
         tools:text="Todo Status"/>
 

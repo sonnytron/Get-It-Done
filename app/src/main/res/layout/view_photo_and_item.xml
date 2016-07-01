@@ -3,6 +3,7 @@
               android:layout_marginTop="16dp"
               android:layout_marginLeft="16dp"
               android:layout_marginRight="16dp"
+              android:background="@color/buttonTextColor"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
     <LinearLayout
@@ -16,12 +17,14 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:scaleType="centerInside"
-            android:background="@android:color/darker_gray"
+            android:background="@drawable/image_view_border"
             android:cropToPadding="true"/>
         <ImageButton
             android:id="@+id/todo_camera"
+            style="@style/ButtonAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:src="@android:drawable/ic_menu_camera"/>
     </LinearLayout>
 
@@ -44,7 +47,9 @@
             android:hint="@string/to_do_hint"/>
         <ImageButton
             android:id="@+id/todo_item_delete"
+            style="@style/ButtonAction"
             android:src="@drawable/ic_menu_delete"
+            android:layout_marginTop="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
