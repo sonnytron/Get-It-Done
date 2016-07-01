@@ -1,5 +1,8 @@
 # Get-It-Done
-<img src="/GetItDoneV2.gif" align="left" width="270" height="480"><br>
+
+<img src="/GetItDoneV2.gif" align="left" width="270" height="480">
+<br>
+
 
 ## Welcome to version 1.0, members of CodePath! 
   
