@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telecom.Call;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -207,15 +208,17 @@ public class TodoListFragment extends Fragment {
 
     private class TodoAdapter extends RecyclerView.Adapter<TodoHolder> {
         private List<Todo> mTodos;
+        private LayoutInflater mInflater;
 
         public TodoAdapter(List<Todo> todos) {
             mTodos = todos;
         }
 
+
         @Override
         public TodoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(R.layout.list_item_todo, parent, false);
+            mInflater = LayoutInflater.from(getActivity());
+            View view = mInflater.inflate(R.layout.list_item_todo, parent, false);
             return new TodoHolder(view);
         }
 
@@ -224,6 +227,7 @@ public class TodoListFragment extends Fragment {
             Todo todo = mTodos.get(position);
             holder.bindTodo(todo);
         }
+
 
         @Override
         public int getItemCount() {

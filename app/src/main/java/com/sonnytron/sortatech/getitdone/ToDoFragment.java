@@ -116,7 +116,7 @@ public class ToDoFragment extends Fragment {
         });
 
         mDueButton = (Button)v.findViewById(R.id.due_date);
-        updateDueDate("Due on: " + mTodo.getDueDate().toString());
+        updateDueDate(mTodo.dateString());
         mDueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -25,7 +25,7 @@ public class PhotoUtilities {
                 inSampleSize = Math.round(srcWidth / destWidth);
             }
         }
-
+        inSampleSize /= 2;
         options = new BitmapFactory.Options();
         options.inSampleSize = inSampleSize;
         return BitmapFactory.decodeFile(path, options);

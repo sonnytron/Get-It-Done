@@ -89,6 +89,6 @@ public class Todo {
             return "";
         }
         SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
-        return "Due on: " + formatter.format(mDueDate);
+        return "Complete by: " + formatter.format(mDueDate);
     }
 }
