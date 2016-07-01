@@ -1,7 +1,6 @@
 # Get-It-Done
 
-<img src="/GetItDoneV2.gif" align="left" width="270" height="480">  
-<br>  
+![Demo Gif](/GetItDoneV2.gif =480x270)  
   
 ## Welcome to version 1.0, members of CodePath! 
   
