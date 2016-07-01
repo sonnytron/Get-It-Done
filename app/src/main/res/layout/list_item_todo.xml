@@ -1,32 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
+                android:layout_margin="8dp"
+                android:background="@color/buttonTextColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="8dp"
+        android:layout_height="116dp"
+        android:id="@+id/priority_bar"
+        android:background="@color/darkGray"
+        />
+
+    <TextView
+        android:id="@+id/list_item_todo_status_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/priority_bar"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
+        android:padding="4dp"
+        tools:text="Todo Status"/>
+
+    <TextView
+        android:id="@+id/list_item_todo_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_todo_status_text_view"
+        android:layout_toRightOf="@+id/priority_bar"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        tools:text="Todo Title"/>
+
+    <TextView
+        android:id="@+id/list_item_todo_due_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list_item_todo_title_text_view"
+        android:layout_toRightOf="@+id/priority_bar"
+        android:textStyle="normal"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        tools:text="Todo date"/>
+
     <ImageView
         android:id="@+id/list_item_todo_photo_view"
         android:background="@drawable/image_view_border"
-        android:scaleType="centerInside"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:padding="2dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="8dp"
         />
-    <TextView
-        android:id="@+id/list_item_todo_title_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/list_item_todo_photo_view"
-        android:textStyle="bold"
-        android:padding="4dp"
-        tools:text="Todo Title"/>
-    <TextView
-        android:id="@+id/list_item_todo_status_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/list_item_todo_photo_view"
-        android:layout_below="@+id/list_item_todo_title_text_view"
-        android:background="@drawable/status_border"
-        android:padding="4dp"
-        tools:text="Todo Status"/>
 
 </RelativeLayout>

@@ -5,10 +5,7 @@
         android:id="@+id/menu_item_new_todo"
         android:icon="@drawable/ic_menu_add"
         android:title="@string/new_todo"
+        android:tint="@color/buttonTextColor"
         app:showAsAction="ifRoom|withText"/>
-    <item
-        android:id="@+id/menu_item_show_subtitles"
-        android:title="@string/show_subtitle"
-        app:showAsAction="ifRoom"/>
 
 </menu>

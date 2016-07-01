@@ -1,5 +1,6 @@
 package com.sonnytron.sortatech.getitdone;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -82,4 +83,12 @@ public class Todo {
     }
 
     public String getPhotoFilename() { return "IMG_" + getId().toString() + ".jpg"; }
+
+    public String dateString() {
+        if (mDueDate == null) {
+            return "";
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+        return "Due on: " + formatter.format(mDueDate);
+    }
 }

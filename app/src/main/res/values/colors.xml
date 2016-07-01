@@ -4,10 +4,14 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#20586B</color>
     <color name="buttonTextColor">#FFFFFF</color>
-    <color name="buttonBackground">#20586B</color>
+    <color name="buttonBackground">#1E6178</color>
     <color name="darkGray">#495B61</color>
     <color name="creamYellow">#EDE5AB</color>
     <color name="bloodOrange">#FF8533</color>
     <color name="statusGreen">#009900</color>
     <color name="washedPurple">#995EA8</color>
+    <color name="priorityHigh">#F32F32</color>
+    <color name="priorityMedium">#FF8C00</color>
+    <color name="priorityLow">#3E91CF</color>
+    <color name="lightGrayBackground">#d1d1e0</color>
 </resources>

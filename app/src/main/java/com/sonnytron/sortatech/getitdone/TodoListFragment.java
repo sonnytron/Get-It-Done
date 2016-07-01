@@ -51,6 +51,7 @@ public class TodoListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSubtitleShowing = true;
         setHasOptionsMenu(true);
     }
 
@@ -91,13 +92,6 @@ public class TodoListFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_todo_list, menu);
-
-        MenuItem subItem = menu.findItem(R.id.menu_item_show_subtitles);
-        if (mSubtitleShowing) {
-            subItem.setTitle(R.string.hide_subtitle);
-        } else {
-            subItem.setTitle(R.string.show_subtitle);
-        }
     }
 
     @Override
@@ -108,11 +102,6 @@ public class TodoListFragment extends Fragment {
                 TodoManager.get(getActivity()).addTodo(todo);
                 updateUI();
                 mCallbacks.onTodoSelected(todo);
-                return true;
-            case R.id.menu_item_show_subtitles:
-                mSubtitleShowing = !mSubtitleShowing;
-                getActivity().invalidateOptionsMenu();
-                updateSubtitleCount();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -150,7 +139,9 @@ public class TodoListFragment extends Fragment {
     private class TodoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTitleTextView;
         private TextView mStatusTextView;
+        private TextView mDueDateTextView;
         private ImageView mPhotoView;
+        private ImageView mPriorityBar;
         private Todo mTodo;
         private File mPhotoFile;
 
@@ -161,6 +152,7 @@ public class TodoListFragment extends Fragment {
             mPhotoFile = TodoManager.get(getActivity()).getPhotoFile(mTodo);
             updatePhotoView();
             updatePriorityStatus();
+            updateDateItem();
         }
 
         public TodoHolder(View itemView) {
@@ -169,6 +161,8 @@ public class TodoListFragment extends Fragment {
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_todo_title_text_view);
             mStatusTextView = (TextView) itemView.findViewById(R.id.list_item_todo_status_text_view);
             mPhotoView = (ImageView) itemView.findViewById(R.id.list_item_todo_photo_view);
+            mPriorityBar = (ImageView) itemView.findViewById(R.id.priority_bar);
+            mDueDateTextView = (TextView) itemView.findViewById(R.id.list_item_todo_due_date);
         }
 
         private void updatePhotoView() {
@@ -183,19 +177,26 @@ public class TodoListFragment extends Fragment {
         private void updatePriorityStatus() {
             switch (mTodo.getPriority()) {
                 case 0:
-                    mStatusTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.statusGreen));
-                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.buttonTextColor));
+                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityLow));
+                    mPriorityBar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.priorityLow));
                     break;
                 case 1:
-                    mStatusTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.creamYellow));
-                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.darkGray));
+                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityMedium));
+                    mPriorityBar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.priorityMedium));
                     break;
                 case 2:
-                    mStatusTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bloodOrange));
-                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.buttonTextColor));
+                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityHigh));
+                    mPriorityBar.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.priorityHigh));
                     break;
                 default:
             }
+        }
+
+        private void updateDateItem() {
+            if (mTodo.getDueDate() == null) {
+                return;
+            }
+            mDueDateTextView.setText(mTodo.dateString());
         }
 
         @Override
