@@ -140,7 +140,6 @@ public class ToDoFragment extends Fragment {
                 mTodo.changePriority();
                 TodoManager.get(getActivity()).updateTodo(mTodo);
                 updatePriorityView();
-                showToastForStatus();
             }
         });
 
@@ -227,12 +226,6 @@ public class ToDoFragment extends Fragment {
             default:
         }
         mPriorityTextView.setText(priorityString);
-    }
-
-    private void showToastForStatus() {
-        Context context = getContext();
-        CharSequence text = mTodo.getStatus();
-        Toast.makeText(getContext(), mTodo.getStatus(), Toast.LENGTH_SHORT).show();
     }
 
     private void showAlertForDelete() {
