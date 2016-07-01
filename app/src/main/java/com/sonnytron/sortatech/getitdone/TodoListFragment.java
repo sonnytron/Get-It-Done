@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -182,13 +183,16 @@ public class TodoListFragment extends Fragment {
         private void updatePriorityStatus() {
             switch (mTodo.getPriority()) {
                 case 0:
-                    mStatusTextView.setTextColor(0xFF00CC00);
+                    mStatusTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.statusGreen));
+                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.buttonTextColor));
                     break;
                 case 1:
-                    mStatusTextView.setTextColor(0xFFFFFF66);
+                    mStatusTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.creamYellow));
+                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.darkGray));
                     break;
                 case 2:
-                    mStatusTextView.setTextColor(0xFFFF5050);
+                    mStatusTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bloodOrange));
+                    mStatusTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.buttonTextColor));
                     break;
                 default:
             }
