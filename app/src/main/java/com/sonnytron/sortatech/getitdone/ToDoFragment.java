@@ -214,15 +214,15 @@ public class ToDoFragment extends Fragment {
         switch (mTodo.getPriority()) {
             case 0:
                 priorityString = "Low";
-                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityLow);
+                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityLow));
                 break;
             case 1:
                 priorityString = "Normal";
-                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityMedium);
+                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityMedium));
                 break;
             case 2:
                 priorityString = "High";
-                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityHigh);
+                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityHigh));
                 break;
             default:
         }
