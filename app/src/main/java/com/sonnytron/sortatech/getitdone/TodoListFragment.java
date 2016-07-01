@@ -3,6 +3,7 @@ package com.sonnytron.sortatech.getitdone;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
@@ -22,9 +23,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 import java.io.File;
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -170,8 +174,7 @@ public class TodoListFragment extends Fragment {
             if (mPhotoFile == null || !mPhotoFile.exists()) {
                 mPhotoView.setImageDrawable(null);
             } else {
-                Bitmap bitmap = PhotoUtilities.getScaledBitmap(mPhotoFile.getPath(), getActivity());
-                mPhotoView.setImageBitmap(bitmap);
+                Picasso.with(getContext()).load(Uri.fromFile(mPhotoFile)).into(mPhotoView);
             }
         }
 
