@@ -1,6 +1,6 @@
 # Get-It-Done
 
-![alt tag](/GetItDoneV2.gif)
+![alt tag](/GetItDoneV2.gif | width=270)
 
 ## Welcome to version 1.0, members of CodePath! 
   
