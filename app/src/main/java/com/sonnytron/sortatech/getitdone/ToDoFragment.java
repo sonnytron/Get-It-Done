@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -213,15 +214,15 @@ public class ToDoFragment extends Fragment {
         switch (mTodo.getPriority()) {
             case 0:
                 priorityString = "Low";
-                mPriorityTextView.setTextColor(0xFF00CC00);
+                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityLow);
                 break;
             case 1:
                 priorityString = "Normal";
-                mPriorityTextView.setTextColor(0xFFFFFF66);
+                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityMedium);
                 break;
             case 2:
                 priorityString = "High";
-                mPriorityTextView.setTextColor(0xFFFF5050);
+                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityHigh);
                 break;
             default:
         }
