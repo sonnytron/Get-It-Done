@@ -14,5 +14,12 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="buttonAlert" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/buttonTextColor</item>
+        <item name="android:background">@color/priorityHigh</item>
+        <item name="android:tint">@color/buttonTextColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
 </resources>

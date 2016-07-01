@@ -42,4 +42,17 @@
         android:layout_marginRight="16dp"
         android:text="@string/status_title"/>
 
+    <ImageButton
+        android:id="@+id/todo_item_delete"
+        style="@style/buttonAlert"
+        android:src="@drawable/ic_menu_delete"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
