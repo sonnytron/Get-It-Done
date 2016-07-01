@@ -19,3 +19,6 @@ This is my application project for the very lucrative and promising [8 week prog
 - Implement warning dialog when Todo is nearing deadline
 - Add ability to sort Todos based on Due Date  
 - Add "Done" checkbox
+
+### Added features
+- Better styling, primary and background UI colors
