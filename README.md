@@ -2,7 +2,7 @@
 
 <img src="/GetItDoneV2.gif" align="left" width="270" height="480">  
 <br>  
-
+  
 ## Welcome to version 1.0, members of CodePath! 
   
 This is my application project for the very lucrative and promising [8 week program](https://codepath.com/androidbootcamp) hosted by [CodePath](https://www.codepath.com).  
