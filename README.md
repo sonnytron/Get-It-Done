@@ -1,6 +1,6 @@
 # Get-It-Done
 
-![Demo Gif](/GetItDoneV2.gif =480x270)  
+![Demo Gif](/GetItDoneV2.gif)  
   
 ## Welcome to version 1.0, members of CodePath! 
   
