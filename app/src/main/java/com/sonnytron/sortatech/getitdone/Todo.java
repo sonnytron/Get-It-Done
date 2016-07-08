@@ -13,6 +13,7 @@ public class Todo {
     private Date mDueDate;
     private String mStatus;
     private int mPriority;
+    private boolean mDone;
 
     public Todo() {
         this(UUID.randomUUID());
@@ -61,6 +62,14 @@ public class Todo {
 
     public int getPriority() {
         return mPriority;
+    }
+
+    public void setDone(boolean done) {
+        mDone = done;
+    }
+
+    public boolean isDone() {
+        return mDone;
     }
 
     public void changePriority() {

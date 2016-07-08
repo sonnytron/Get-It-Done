@@ -46,6 +46,30 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:hint="@string/to_do_hint"/>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                style="@style/ButtonAction"
+                android:id="@+id/todo_item_donebutton"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="12dp"
+                android:textColorHint="@color/buttonTextColor"
+                android:hint="Mark as done"
+                android:layout_weight="9"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"/>
+
+            <CheckBox
+                android:id="@+id/todo_item_checkbox"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>

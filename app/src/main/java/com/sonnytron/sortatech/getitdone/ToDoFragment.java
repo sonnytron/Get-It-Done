@@ -20,6 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -51,7 +53,8 @@ public class ToDoFragment extends Fragment {
     private ImageView mPhotoView;
     private Callbacks mCallbacks;
     private ImageButton mDeleteButton;
-
+    private Button mDoneButton;
+    private CheckBox mDoneCheckbox;
 
     public interface Callbacks {
         void onTodoUpdated(Todo todo);
@@ -168,6 +171,18 @@ public class ToDoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showAlertForDelete();
+            }
+        });
+
+        mDoneCheckbox = (CheckBox) v.findViewById(R.id.todo_item_checkbox);
+        mDoneCheckbox.setChecked(mTodo.isDone());
+
+        mDoneButton = (Button) v.findViewById(R.id.todo_item_donebutton);
+        mDoneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTodo.setDone(!mTodo.isDone());
+                mDoneCheckbox.setChecked(mTodo.isDone());
             }
         });
 
