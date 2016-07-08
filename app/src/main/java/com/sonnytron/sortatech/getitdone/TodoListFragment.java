@@ -3,6 +3,7 @@ package com.sonnytron.sortatech.getitdone;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -158,6 +159,7 @@ public class TodoListFragment extends Fragment {
             updatePhotoView();
             updatePriorityStatus();
             updateDateItem();
+            updateStatus();
         }
 
         public TodoHolder(View itemView) {
@@ -207,6 +209,14 @@ public class TodoListFragment extends Fragment {
         public void onClick(View v) {
             mCallbacks.onTodoSelected(mTodo);
         }
+
+        private void updateStatus() {
+            if (mTodo.isDone()) {
+                mTitleTextView.setPaintFlags(mTitleTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                mStatusTextView.setPaintFlags(mStatusTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                mDueDateTextView.setPaintFlags(mDueDateTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            }
+        }
     }
 
     private class TodoAdapter extends RecyclerView.Adapter<TodoHolder> {
@@ -230,7 +240,6 @@ public class TodoListFragment extends Fragment {
             Todo todo = mTodos.get(position);
             holder.bindTodo(todo);
         }
-
 
         @Override
         public int getItemCount() {
