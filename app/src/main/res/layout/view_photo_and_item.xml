@@ -45,6 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
+            android:maxLength="140"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
             android:hint="@string/to_do_hint"/>
         <LinearLayout
             android:layout_weight="1"

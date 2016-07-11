@@ -45,7 +45,6 @@ public class ToDoFragment extends Fragment {
 
     private Todo mTodo;
     private EditText mTitleField;
-    private TextView mPriorityTextView;
     private File mPhotoFile;
     private Button mDueButton;
     private Button mStatusButton;
@@ -146,6 +145,8 @@ public class ToDoFragment extends Fragment {
             }
         });
 
+        updatePriorityView();
+
         mPhotoButton = (ImageButton)v.findViewById(R.id.todo_camera);
         final Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         boolean canCapturePhoto = mPhotoFile != null && captureImage.resolveActivity(packageManager) != null;
@@ -163,8 +164,7 @@ public class ToDoFragment extends Fragment {
         mPhotoView = (ImageView)v.findViewById(R.id.todo_photo);
         updatePhotoView();
 
-        mPriorityTextView = (TextView)v.findViewById(R.id.todo_fragment_priority_text);
-        updatePriorityView();
+
 
         mDeleteButton = (ImageButton) v.findViewById(R.id.todo_item_delete);
         mDeleteButton.setOnClickListener(new View.OnClickListener() {
@@ -233,20 +233,20 @@ public class ToDoFragment extends Fragment {
         String priorityString = new String();
         switch (mTodo.getPriority()) {
             case 0:
-                priorityString = "Low";
-                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityLow));
+                priorityString = "Change Priority: Low";
+                mStatusButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.priorityLow));
                 break;
             case 1:
-                priorityString = "Normal";
-                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityMedium));
+                priorityString = "Change Priority: Normal";
+                mStatusButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.priorityMedium));
                 break;
             case 2:
-                priorityString = "High";
-                mPriorityTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.priorityHigh));
+                priorityString = "Change Priority: High";
+                mStatusButton.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.priorityHigh));
                 break;
             default:
         }
-        mPriorityTextView.setText(priorityString);
+        mStatusButton.setText(priorityString);
     }
 
     private void showAlertForDelete() {
