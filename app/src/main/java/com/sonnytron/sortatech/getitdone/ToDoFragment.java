@@ -183,10 +183,12 @@ public class ToDoFragment extends Fragment {
             public void onClick(View v) {
                 if (mTodo.isDone()) {
                     mTodo.setDone(0);
+                    mDoneCheckbox.setChecked(false);
                 } else {
                     mTodo.setDone(1);
+                    mDoneCheckbox.setChecked(true);
                 }
-                mDoneCheckbox.setChecked(mTodo.isDone());
+                TodoManager.get(getActivity()).updateTodo(mTodo);
             }
         });
 

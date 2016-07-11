@@ -13,7 +13,7 @@ public class Todo {
     private Date mDueDate;
     private String mStatus;
     private int mPriority;
-    private boolean mDone;
+    private int mDone;
 
     public Todo() {
         this(UUID.randomUUID());
@@ -22,8 +22,8 @@ public class Todo {
     public Todo(UUID id) {
         mId = id;
         mStatus = "Normal";
+        mDone = 0;
         mDueDate = new Date();
-        mDone = false;
     }
 
     public UUID getId() {
@@ -50,6 +50,18 @@ public class Todo {
         return mStatus;
     }
 
+    public void setDone(int done) {
+        mDone = done;
+    }
+
+    public int getDone() {
+        return mDone;
+    }
+
+    public boolean isDone() {
+        return mDone == 1;
+    }
+
     public void setStatus(String status) {
         if (status.equals("Low")) {
             mPriority = 0;
@@ -63,27 +75,6 @@ public class Todo {
 
     public int getPriority() {
         return mPriority;
-    }
-
-    public void setDone(int done) {
-        boolean isDone = done == 1;
-        setDone(isDone);
-    }
-
-    private void setDone(boolean done) {
-        mDone = done;
-    }
-
-    public boolean isDone() {
-        return mDone;
-    }
-
-    public int doneInt() {
-        if (mDone) {
-            return 1;
-        } else {
-            return 0;
-        }
     }
 
     public void changePriority() {
