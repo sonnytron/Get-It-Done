@@ -107,7 +107,7 @@ public class TodoManager {
         values.put(TodoTable.Cols.PRIORITY, todo.getPriority());
         values.put(TodoTable.Cols.DATE, todo.getDueDate().getTime());
         values.put(TodoTable.Cols.TITLE, todo.getTitle());
-        values.put(TodoTable.Cols.DONE, todo.isDone());
+        values.put(TodoTable.Cols.DONE, todo.doneInt());
         return values;
     }
 

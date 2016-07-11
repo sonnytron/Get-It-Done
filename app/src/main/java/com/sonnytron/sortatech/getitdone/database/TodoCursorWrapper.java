@@ -2,12 +2,14 @@ package com.sonnytron.sortatech.getitdone.database;
 
 import android.database.Cursor;
 import android.database.CursorWrapper;
+import android.util.Log;
 
 import com.sonnytron.sortatech.getitdone.Todo;
 import com.sonnytron.sortatech.getitdone.database.TodoDBSchema.TodoTable;
 
 import java.util.Date;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 /**
  * Created by sonnyrodriguez on 6/22/16.
@@ -23,7 +25,7 @@ public class TodoCursorWrapper extends CursorWrapper {
         String status = getString(getColumnIndex(TodoTable.Cols.STATUS));
         int priority = getInt(getColumnIndex(TodoTable.Cols.PRIORITY));
         long date = getLong(getColumnIndex(TodoTable.Cols.DATE));
-        boolean done = (getInt(getColumnIndex(TodoTable.Cols.DONE)) == 1);
+        int done = getDone(getColumnIndex(TodoTable.Cols.DONE));
 
         Todo todo = new Todo(UUID.fromString(uuidString));
         todo.setTitle(title);
@@ -31,5 +33,17 @@ public class TodoCursorWrapper extends CursorWrapper {
         todo.setStatus(status);
         todo.setDone(done);
         return todo;
+    }
+
+    public int getDone(int columnIndex) {
+        int value = 0;
+        try {
+            if (!isNull(columnIndex)) {
+                value = getInt(columnIndex);
+            }
+        } catch (Throwable throwable) {
+            Log.e("Cursor Error at GetDone", "GetDone", throwable);
+        }
+        return value;
     }
 }

@@ -65,12 +65,25 @@ public class Todo {
         return mPriority;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(int done) {
+        boolean isDone = done == 1;
+        setDone(isDone);
+    }
+
+    private void setDone(boolean done) {
         mDone = done;
     }
 
     public boolean isDone() {
         return mDone;
+    }
+
+    public int doneInt() {
+        if (mDone) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public void changePriority() {

@@ -181,7 +181,11 @@ public class ToDoFragment extends Fragment {
         mDoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTodo.setDone(!mTodo.isDone());
+                if (mTodo.isDone()) {
+                    mTodo.setDone(0);
+                } else {
+                    mTodo.setDone(1);
+                }
                 mDoneCheckbox.setChecked(mTodo.isDone());
             }
         });
