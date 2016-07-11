@@ -10,7 +10,7 @@ import com.sonnytron.sortatech.getitdone.database.TodoDBSchema.TodoTable;
  * Created by sonnyrodriguez on 6/22/16.
  */
 public class TodoBaseHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
     private static final String DATABASE_NAME = "todoItems.db";
 
     public TodoBaseHelper(Context context) {

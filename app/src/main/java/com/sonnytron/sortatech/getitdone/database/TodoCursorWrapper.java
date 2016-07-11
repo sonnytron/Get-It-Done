@@ -23,7 +23,7 @@ public class TodoCursorWrapper extends CursorWrapper {
         String status = getString(getColumnIndex(TodoTable.Cols.STATUS));
         int priority = getInt(getColumnIndex(TodoTable.Cols.PRIORITY));
         long date = getLong(getColumnIndex(TodoTable.Cols.DATE));
-        boolean done = getInt(getColumnIndex(TodoTable.Cols.DONE)) > 0;
+        boolean done = (getInt(getColumnIndex(TodoTable.Cols.DONE)) == 1);
 
         Todo todo = new Todo(UUID.fromString(uuidString));
         todo.setTitle(title);

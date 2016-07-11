@@ -23,6 +23,7 @@ public class Todo {
         mId = id;
         mStatus = "Normal";
         mDueDate = new Date();
+        mDone = false;
     }
 
     public UUID getId() {
