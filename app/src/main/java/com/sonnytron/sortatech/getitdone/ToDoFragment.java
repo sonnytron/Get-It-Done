@@ -204,7 +204,7 @@ public class ToDoFragment extends Fragment {
         if (requestCode == REQUEST_DATE) {
             Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
             mTodo.setDueDate(date);
-            updateDueDate("Due on: " + mTodo.getDueDate().toString());
+            updateDueDate(mTodo.dateString());
             updateTodo();
         } else if (requestCode == REQUEST_PHOTO) {
             updateTodo();
