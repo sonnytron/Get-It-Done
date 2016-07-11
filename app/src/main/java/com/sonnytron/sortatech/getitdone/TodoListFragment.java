@@ -1,6 +1,7 @@
 package com.sonnytron.sortatech.getitdone;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -109,6 +111,9 @@ public class TodoListFragment extends Fragment {
                 updateUI();
                 mCallbacks.onTodoSelected(todo);
                 return true;
+            case R.id.menu_item_clear_all:
+                displayClearAlert();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -140,6 +145,27 @@ public class TodoListFragment extends Fragment {
         }
 
         updateSubtitleCount();
+    }
+
+    private void displayClearAlert() {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setPositiveButton("For Sure", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                TodoManager.get(getActivity()).clearDone();
+                updateUI();
+            }
+        });
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.setCancelable(true);
+        alert.setTitle("Did you really finish all that stuff? Once you delete them, they're gone forevers!");
+        alert.show();
     }
 
     private class TodoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -215,6 +241,10 @@ public class TodoListFragment extends Fragment {
                 mTitleTextView.setPaintFlags(mTitleTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 mStatusTextView.setPaintFlags(mStatusTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 mDueDateTextView.setPaintFlags(mDueDateTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            } else {
+                mTitleTextView.setPaintFlags(0);
+                mStatusTextView.setPaintFlags(0);
+                mDueDateTextView.setPaintFlags(0);
             }
         }
     }

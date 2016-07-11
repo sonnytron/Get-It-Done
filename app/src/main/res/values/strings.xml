@@ -12,4 +12,5 @@
     <string name="hide_subtitle">Hide Subtitle</string>
     <string name="subtitle_format">%1$s things to do</string>
     <string name="status_todo_text">Priority</string>
+    <string name="menu_clear_title">Clear Done</string>
 </resources>
